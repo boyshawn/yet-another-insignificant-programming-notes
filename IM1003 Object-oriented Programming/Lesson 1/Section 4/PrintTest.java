@@ -1,3 +1,8 @@
+/**
+ * @author  Francis Pang
+ * @version %I% %G%
+ * @since   1.0
+ */
 public class PrintTest{
 	public static void main(String[] args){
         //Print alternate rows of asterisk
