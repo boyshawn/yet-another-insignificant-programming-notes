@@ -27,4 +27,14 @@ public class HarmonicSum {   // saved as "HarmonicSum.java"
         // Find the difference and display
         System.out.println("The differences between sum from left-to-right and right-to-left is " + (sumL2R - sumR2L));
     }
+
+    /*
+     * The reason why there is a difference between the two number is due to the
+     * inaccurate representation of some number in floating point when we 
+     * declare the number as double. As quoted in Wikipedia, "The fact that 
+     * floating-point numbers cannot precisely represent all real numbers, and
+     * that floating-point operations cannot precisely represent true 
+     * arithmetic operations...". There is no sum which is defined to be more
+     * accurate. Both result are accurate in their own way. 
+     */
 }
