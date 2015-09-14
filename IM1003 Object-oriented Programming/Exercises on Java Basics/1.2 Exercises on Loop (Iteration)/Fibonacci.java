@@ -18,16 +18,23 @@ public class Fibonacci {
         double average;
 
         System.out.println("The first " + nMax + " Fibonacci numbers are:");
-        ......
+        System.out.print(fnMinus1 + " " + fnMinus2);
 
-            while (n <= nMax) {
-                // Compute F(n), print it and add to sum
-                ......
-                    // Adjust the index n and shift the numbers
-                    ......
-            }
+        while (n <= nMax) {
+            // Compute F(n), print it and add to sum
+            fn = fnMinus1 + fnMinus2;
+            sum += fn;
+            System.out.print(" " + fn);
+            
+            // Adjust the index n and shift the numbers
+            fnMinus2 = fnMinus1;
+            fnMinus1 = fn;
+            n++;
+        }
 
         // Compute and display the average (=sum/nMax)
-        ......
+        System.out.println(); //Print a line break
+        average = (double) sum / nMax;
+        System.out.println("The average is " + average);
     }
 }

@@ -5,16 +5,15 @@
  * @author  Francis Pang
  * @since   %I% %G%
  * @version 1.0
- * /
+ */
 
 public class ExtractingDigits{
-public static void main(String[] args){
-int n = ....;
-while (n > 0) {
-   int digit = n % 10;  // Extract the last digit
-   ......
-   .....
-   n = n / 10;          // Drop last digit and repeat the loop
-}
-}
+    public static void main(String[] args){
+        int n = 1542;
+        while (n > 0) {
+            int digit = n % 10;  // Extract the last digit
+            System.out.print(digit + ",");
+            n = n / 10;          // Drop last digit and repeat the loop
+        }
+    }
 }
