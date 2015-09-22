@@ -1,5 +1,6 @@
 /*
- * Exercise TimeTable (nested-loop): Write a program called TimeTable to produce the multiplication table of 1 to 9 as shown using two nested for-loops:
+ * Exercise TimeTable (nested-loop): Write a program called TimeTable to produce
+ * the multiplication table of 1 to 9 as shown using two nested for-loops:
  * * |  1  2  3  4  5  6  7  8  9
  * -------------------------------
  * 1 |  1  2  3  4  5  6  7  8  9
@@ -15,3 +16,81 @@
  * @since   %I% %G%
  * @version 1.0
  */
+
+public class TimeTable{
+    public static void main(String[] args){
+        int multiply = 0;
+        int timeTableSize = 0;
+
+        //Print TimeTable of 1 to 9
+        timeTableSize = 9;
+        System.out.println("Printing the 9x9 time table now");
+
+        //Header
+        System.out.print("* |");
+
+        for(int i = 1; i <= timeTableSize; i++){
+            System.out.print("  " + i);
+        }
+        System.out.println();
+        System.out.println("------------------------------");
+
+        //Main Time Table body
+        for(int column = 1; column <= timeTableSize; column++){
+            System.out.print(column + " |");
+            for(int row = 1; row <= timeTableSize; row++){
+                multiply = column * row;
+                if(multiply < 10){
+                    System.out.print("  " + multiply);
+                }
+                else{
+                    System.out.print(" " + multiply);
+                }
+            }
+            System.out.println();
+        }
+
+        //Print TimeTable of 1 to 12
+        timeTableSize = 12;
+        System.out.println();
+        System.out.println("Printing the 12x12 time table now");
+
+        //Header
+        System.out.print("*  |");
+
+        for(int i = 1; i <= timeTableSize; i++){
+            if(i < 10){
+                System.out.print("   " + i);
+            }
+            else{
+                System.out.print("  " + i);
+            }
+        }
+        System.out.println();
+        System.out.println("----------------------------------------------------");
+
+        //Main Time Table body
+        for(int column = 1; column <= timeTableSize; column++){
+            if(column < 10){
+                System.out.print(column + "  |");
+            }
+            else{
+                System.out.print(column + " |");
+            }
+            for(int row = 1; row <= timeTableSize; row++){
+                multiply = column * row;
+                if(multiply < 10){
+                    System.out.print("   " + multiply);
+                }
+                else if(multiply < 100){
+                    System.out.print("  " + multiply);
+                }
+                else{
+                    System.out.print(" " + multiply);
+                }
+            }
+            System.out.println();
+        }
+    }
+
+}

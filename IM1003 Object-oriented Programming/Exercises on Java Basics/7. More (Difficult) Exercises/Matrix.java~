@@ -1,0 +1,8 @@
+/*
+ * Exercise Matrix: Similar to Math class, write a Matrix library that supports matrix operations (such as addition, subtraction, multiplication) via 2D arrays. The operations shall support both doubles and ints. Also write a test class to exercise all the operations programmed.
+ * @author  Francis Pang
+ * @since   %I% %G%
+ * @version 1.0
+ */
+
+
