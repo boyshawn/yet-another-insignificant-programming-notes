@@ -1,5 +1,6 @@
 /*
- * Exercise Bin2Dec: Write a program called Bin2Dec to convert an input binary string into its equivalent decimal number. Your output shall look like:
+ * Exercise Bin2Dec: Write a program called Bin2Dec to convert an input binary 
+ * string into its equivalent decimal number. Your output shall look like:
  *
  * Enter a Binary string: <b>1011</b>
  * The equivalent decimal number for binary "1011" is 11
@@ -22,9 +23,30 @@ public class Bin2Dec {
       Scanner in = new Scanner(System.in);
    
       // Read input binary string
-      ......
+      System.out.print("Enter a Binary string: ");
+      binStr = in.next();
    
       // Convert binary string into Decimal
-      ......
+      binStrLen = binStr.length();
+
+      for(int i=0;i < binStrLen; i++){
+          switch(binStr.charAt(i)){
+              case '0':
+                  break;
+              case '1':
+                  dec += (int) Math.pow(2,(binStrLen - i - 1));
+                  break;
+              default:
+                  System.out.println("Error: Invalid Binary String \"" +
+                          binStr + "\"");
+
+                  System.exit(0);
+                  break;
+          }
+      }
+
+      //Print the result
+      System.out.print("The equivalent decimal number for binary \"" + binStr +
+              "\" is " + dec);
    }
 }
