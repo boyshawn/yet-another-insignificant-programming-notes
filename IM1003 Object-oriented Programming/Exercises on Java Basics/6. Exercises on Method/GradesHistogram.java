@@ -14,88 +14,123 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GradesHistogram {
-	public static int[] grades;
-	// Declare an int array of grades, to be allocated later
-	public static int[] bins = new int[10];
-	// Declare and allocate an int array for histogram bins.
-	// 10 bins for 0-9, 10-19,...., 90-100
+    public static int[] grades;
+    // Declare an int array of grades, to be allocated later
+    public static int[] bins = new int[10];
+    // Declare and allocate an int array for histogram bins.
+    // 10 bins for 0-9, 10-19,...., 90-100
 
-	public static void main(String[] args) {
-		readGrades("grades.in");
-		computeHistogram();
-		printHistogramHorizontal();
-		printHistogramVertical();
-	}
+    public static void main(String[] args) {
+        readGrades("grades.in");
+        computeHistogram();
+        printHistogramHorizontal();
+        printHistogramVertical();
+    }
 
-	// Read the grades from "filename", store in "grades" array.
-	// Assume that the inputs are valid.
-	public static void readGrades(String filename) {
-		Scanner fileInput;
-		int numberOfStudent;
+    // Read the grades from "filename", store in "grades" array.
+    // Assume that the inputs are valid.
+    public static void readGrades(String filename) {
+        Scanner fileInput;
+        int numberOfStudent;
 
-		try {
-			fileInput = new Scanner(new File(filename));
+        try {
+            fileInput = new Scanner(new File(filename));
 
-			//Getting user input
-			numberOfStudent = fileInput.nextInt();
-			grades = new int[numberOfStudent];
+            //Getting user input
+            numberOfStudent = fileInput.nextInt();
+            grades = new int[numberOfStudent];
 
-			for(int i =0; i < numberOfStudent; i++){
-				grades[i] = fileInput.nextInt();
-			}
+            for(int i =0; i < numberOfStudent; i++){
+                grades[i] = fileInput.nextInt();
+            }
 
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		catch (InputMismatchException e){
-			// TODO Auto-generated catch block
-			System.out.println("There is a non-numeric word in the file.");
-		}
-	}
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        catch (InputMismatchException e){
+            // TODO Auto-generated catch block
+            System.out.println("There is a non-numeric word in the file.");
+        }
+    }
 
-	// Based on "grades" array, populate the "bins" array.
-	public static void computeHistogram() { 
-		//Initialise the array
-		for(int bin : bins){
-			bin = 0;
-		}
-		for(int grade : grades){
-			if(grade == 100){	//To handle the exception of 100 marks
-				bins[9]++;
-			}
-			else{
-				bins[(grade / 10)]++;
-			}
-		}
-	}
+    // Based on "grades" array, populate the "bins" array.
+    public static void computeHistogram() { 
+        //Initialise the array
+        for(int bin : bins){
+            bin = 0;
+        }
+        for(int grade : grades){
+            if(grade == 100){	//To handle the exception of 100 marks
+                bins[9]++;
+            }
+            else{
+                bins[(grade / 10)]++;
+            }
+        }
+    }
 
-	// Print histogram based on the "bins" array.
-	public static void printHistogramHorizontal() { 
-		for(int i = 0; i < bins.length; i++){
-			if(i == 0){	//Add in the extra space for the 0 - 9 
-				System.out.print(" " + i * 10 + " -   " + (((i + 1)* 10) - 1) 
-						+ ": ");
-			}
-			else if (i == bins.length){
-				System.out.print(i * 10 + " - " + ((i + 1)* 10) + ": "); 
-			}
-			else{
-				System.out.print(i * 10 + " -  " + (((i + 1)* 10) - 1) + ": ");				
-			}
+    // Print histogram based on the "bins" array.
+    public static void printHistogramHorizontal() { 
+        for(int i = 0; i < bins.length; i++){
+            if(i == 0){	//Add in the extra space for the 0 - 9 
+                System.out.print(" " + i * 10 + " -   " + (((i + 1)* 10) - 1) 
+                        + ": ");
+            }
+            else if (i == bins.length){
+                System.out.print(i * 10 + " - " + ((i + 1)* 10) + ": "); 
+            }
+            else{
+                System.out.print(i * 10 + " -  " + (((i + 1)* 10) - 1) + ": ");				
+            }
 
-			int j = bins[i];
-			while(j >= 0){
-				System.out.print("*");
-				j--;
-			}
+            int j = bins[i];
+            while(j > 0){
+                System.out.print("*");
+                j--;
+            }
 
-			System.out.println();
-		}
-	}
+            System.out.println();
+        }
+    }
 
-	// Print histogram based on the "bins" array.
-	public static void printHistogramVertical() { 
-		
-	}
+    // Print histogram based on the "bins" array.
+    public static void printHistogramVertical() { 
+        /*Determine which is the biggest number in the bin array
+         *Starting from the biggest number, if the number is bigger than my
+         *counter, display the asterisk, if not we will just put space
+         */
+
+        //Determine the biggest number in the bin array
+        int counter = getMaxValueInBin();
+
+        for (; counter > 0; counter --){
+            for(int j = 0; j < bins.length; j ++){
+                System.out.print("  ");
+                if(bins[j] >= counter){
+                    System.out.print("*");
+                }
+                else{
+                    System.out.print(" ");
+                }
+                System.out.print("   ");
+            }
+            System.out.println();
+        }
+
+        System.out.println(" 0-9  10-19 20-29 30-39 40-49 50-59 60-69 70-79" + 
+                " 80-89 90-100");
+    }
+
+    public static int getMaxValueInBin(){
+        int max = 0;
+
+        for (int bin : bins){
+            if (max < bin){
+                max = bin;
+            }
+        }
+
+        return max;
+    }
 }
