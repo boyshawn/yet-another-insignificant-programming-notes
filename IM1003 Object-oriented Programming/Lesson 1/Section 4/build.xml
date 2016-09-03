@@ -1,0 +1,22 @@
+<project name="Ant build for Lesson 1 Section 4">
+	<description>
+		This buildfile is used as a practice to learn about the basic of Ant
+		build file, and the basic structure inside an Ant file.
+	</description>
+
+	<target name="compile" description="">
+		<echo>Compiling code for Lesson 1 Section 4</echo>
+		<mkdir dir="build" />
+		<javac srcdir="." destdir="build"/>
+	</target>
+
+	<target name="run" description="">
+		<echo>Running the compiled code</echo>
+		<java classname="PrintTest" classpath="build"/>
+	</target>
+
+	<target name="clean" description="">
+		<echo>Cleaning the build</echo>
+		<delete dir="build"/>
+	</target>
+</project>
