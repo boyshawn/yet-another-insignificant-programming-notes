@@ -5,19 +5,23 @@
 	</description>
 	<property name="builddir" location="build" />
 
+	<tstamp>
+		<format property="TSTAMP" pattern="yyyy-MM-dd hh:mm:ss"/>
+	</tstamp>
+
 	<target name="compile" description="">
-		<echo>Compiling code for Lesson 1 Section 4</echo>
+		<echo>${TSTAMP} - Compiling code for Lesson 1 Section 4</echo>
 		<mkdir dir="${builddir}" />
 		<javac srcdir="." destdir="${builddir}"/>
 	</target>
 
 	<target name="run" description="">
-		<echo>Running the compiled code</echo>
+		<echo>${TSTAMP} - Running the compiled code</echo>
 		<java classname="PrintTest" classpath="${builddir}"/>
 	</target>
 
 	<target name="clean" description="">
-		<echo>Cleaning the build</echo>
+		<echo>${TSTAMP} - Cleaning the build</echo>
 		<delete dir="${builddir}"/>
 	</target>
 </project>
