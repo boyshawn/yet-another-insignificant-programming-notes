@@ -68,7 +68,11 @@ public class Matrix {
 		 * Use another 2D array to store the resulting matrix so that both
 		 * original matrixes are not altered.
 		 */
-		int[][] result = m1;	
+		if (!haveSameDimension(m1, m2)) {
+			return new int[][] {{0}};
+		}
+
+		int[][] result = m1;
 
 		for(int i = 0; i < m1.length; i++){
 			for(int j = 0; j < m1[i].length; j++){
@@ -79,7 +83,11 @@ public class Matrix {
 	}
 
 	public static double[][] add(double[][] m1, double[][] m2) {
-		double[][] result = m1;	
+		if (!haveSameDimension(m1, m2)) {
+			return new double[][] {{0}};
+		}
+
+		double[][] result = m1;
 
 		for(int i = 0; i < m1.length; i++){
 			for(int j = 0; j < m1[i].length; j++){
