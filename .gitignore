@@ -14,3 +14,7 @@ hs_err_pid*
 
 # Vim temporary swap file
 *.swp
+
+# Gradle file
+.gradle/
+gradlew
