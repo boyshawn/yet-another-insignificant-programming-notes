@@ -4,6 +4,30 @@ public class MatrixTest {
 		testPrintOneByOneIntMatrix();
 		testPrintTwoByTwoIntMatrix();
 		testPrintOneByTwoIntMatrix();
+		testPrintTwoByOneIntMatrix();
+		testPrintOneByOneDoubleMatrix();
+		testPrintTwoByTwoDoubleMatrix();
+		testPrintOneByTwoDoubleMatrix();
+		testPrintTwoByOneDoubleMatrix();
+		testSameOneByOneIntMatrix();
+		testSameOneByThreeIntMatrix();
+		testSameFourByOneIntMatrix();
+		testSameThreeByThreeIntMatrix();
+		testDifferentOneByOneIntMatrix();
+		testDifferentSizeFiveByOneIntMatrix();
+		testDifferentSizeThreeByThreeIntMatrix();
+		testSameOneByOneDoubleMatrix();
+		testSameOneByThreeDoubleMatrix();
+		testSameFourByOneDoubleMatrix();
+		testSameThreeByThreeDoubleMatrix();
+		testDifferentSizeOneByOneDoubleMatrix();
+		testDifferentSizeFiveByOneDoubleMatrix();
+		testAddPositiveIntMatrix();
+		testAddZeroIntMatrix();
+		testAddNegativeIntMatrix();
+		testAddPositiveDoubleMatrix();
+		testAddZeroDoubleMatrix();
+		testAddNegativeDoubleMatrix();
 	}
 
 	/*
@@ -97,7 +121,6 @@ public class MatrixTest {
 	}
 
 	public static void testDifferentSizeFiveByOneIntMatrix() {
-		//TODO
 		int[][] fiveByOneMatrix = {{1,3,5,7,9}};
 		int[][] oneByFiveMatrix = {{1},{3},{5},{7},{9}};
 
@@ -111,7 +134,7 @@ public class MatrixTest {
 		int[][] threeByThreeMatrix = {{1,4,7}, {2,5,8}, {3,6,9}};
 		int[][] threeByTwoMatrix = {{3,6,9}, {1,4,7}};
 
-		if (Matrix.haveSameDimension(threeByThreeMatrix , threeByTwoMatrix)) {
+		if (Matrix.haveSameDimension(threeByThreeMatrix, threeByTwoMatrix)) {
 			System.out.println("testDifferentSizeThreeByThreeIntMatrix has" +
 				"error.");
 		}
@@ -121,53 +144,93 @@ public class MatrixTest {
 	 * haveSameDimension(double[][] m1, double[][] m2)
 	 */
 	public static void testSameOneByOneDoubleMatrix() {
-		// TODO
+		double[][] oneByOneMatrix1 = {{1.0}};
+		double[][] oneByOneMatrix2 = {{3.4}};
+
+		if (!Matrix.haveSameDimension(oneByOneMatrix1, oneByOneMatrix2)) {
+			System.out.println("testSameOneByOneDoubleMatrix has error.");
+		}
 	}
 
 	public static void testSameOneByThreeDoubleMatrix() {
-		//TODO
+		double[][] oneByThreeMatrix1 = {{1.0}, {2.7}, {3.9}};
+		double[][] oneByThreeMatrix2 = {{3.4}, {4.7}, {5.5}};
+
+		if (!Matrix.haveSameDimension(oneByThreeMatrix1, oneByThreeMatrix2)) {
+			System.out.println("testSameOneByThreeDoubleMatrix has error.");
+		}
 	}
 
 	public static void testSameFourByOneDoubleMatrix() {
-		//TODO
+		double[][] fourByOneMatrix1 = {{1.0, 2.0, 3.1, 4.2}};
+		double[][] fourByOneMatrix2 = {{8.7, 2.1111, 3.4, 1.1}};
+
+		if (!Matrix.haveSameDimension(fourByOneMatrix1, fourByOneMatrix2)) {
+			System.out.println("testSameFourByOneDoubleMatrix has error.");
+		}
 	}
 
 	public static void testSameThreeByThreeDoubleMatrix() {
-		//TODO
+		double[][] threeByThreeMatrix1 = {{1.9, 2.8, 3.7}, {4.5, 5.6, 6.7}, {7.8, 8.9, 9.0}};
+		double[][] threeByThreeMatrix2 = {{1.9, 2.8, 3.7}, {4.5, 5.6, 6.7}, {7.8, 8.9, 9.0}};
+
+		if (!Matrix.haveSameDimension(threeByThreeMatrix1, threeByThreeMatrix2)) {
+			System.out.println("testSameThreeByThreeDoubleMatrix has error.");
+		}
 	}
 
 	public static void testDifferentSizeOneByOneDoubleMatrix() {
-		//TODO
+		double[][] oneByOneMatrix = {{1.5}};
+		double[][] zeroMatrix = {{}};
+
+		if (Matrix.haveSameDimension(oneByOneMatrix, zeroMatrix)) {
+			System.out.println("testDifferentSizeOneByOneDoubleMatrix has " +
+				"error.");
+		}
 	}
 
 	public static void testDifferentSizeFiveByOneDoubleMatrix() {
-		//TODO
+		double[][] fiveByOneMatrix = {{1.1}, {2.2}, {3.3}, {4.4}, {5.5}};
+		double[][] oneByOneMatrix = {{7.3}};
+
+		if (Matrix.haveSameDimension(fiveByOneMatrix, oneByOneMatrix)) {
+			System.out.println("testDifferentSizeFiveByOneDoubleMatrix has " +
+				"error.");
+		}
 	}
 
 	/*
 	 * add(int[][] m1, int[][] m2)
 	 */
 	public static void testAddPositiveIntMatrix() {
-		//TODO
+		int[][] positiveMatrix1 = {{1}};
+		int[][] positiveMatrix2 = {{67322},{123123}};
+
+		Matrix.printMatrix(Matrix.add(positiveMatrix1, positiveMatrix2));
 	}
 
 	public static void testAddZeroIntMatrix() {
-		//TODO
+		int[][] zeroMatrix1 = {{}};
+		int[][] zeroMatrix2 = {{}};
+
+		Matrix.printMatrix(Matrix.add(zeroMatrix1, zeroMatrix2));
 	}
 
 	public static void testAddNegativeIntMatrix() {
-		//TODO
+		int[][] positiveMatrix = {{1}, {1}};
+		int[][] negativeMatrix = {{4}, {27}};
+
+		Matrix.printMatrix(Matrix.add(positiveMatrix, negativeMatrix));
 	}
 
 	/*
 	 * add(double[][] m1, double[][] m2)
 	 */
 	public static void testAddPositiveDoubleMatrix() {
-		//TODO
-		double[][] positiveMatrix1 = {{1},{3}};
-		double[][] positiveMatrix2 = {{2},{4}};
+		double[][] positiveMatrix1 = {{1.75},{3.11}};
+		double[][] positiveMatrix2 = {{2.79},{4.32}};
 
-
+		Matrix.printMatrix(Matrix.add(positiveMatrix1, positiveMatrix2));
 	}
 
 	public static void testAddZeroDoubleMatrix() {
@@ -178,8 +241,8 @@ public class MatrixTest {
 	}
 
 	public static void testAddNegativeDoubleMatrix() {
-		double[][] positiveMatrix = {{1,3}};
-		double[][] negativeMatrix = {{-2,-4}};
+		double[][] positiveMatrix = {{1.8,39.9}};
+		double[][] negativeMatrix = {{-2.67,-4.01}};
 
 		Matrix.printMatrix(Matrix.add(positiveMatrix,negativeMatrix));
 	}

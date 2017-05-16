@@ -30,6 +30,11 @@ public class Matrix {
 		 * row
 		 */
 
+		//Checking for number of rows
+		if(m1.length != m2.length){
+			return false;
+		}
+
 		//Checking for same number column for every rows
 		for(int i = 0; i < m1.length; i++){
 			if(m1[i].length != m2[i].length){
@@ -37,16 +42,15 @@ public class Matrix {
 			}
 		}
 
-		//Checking for number of rows
-		if(m1.length == m2.length){
-			return true;
-		}
-		else{
-			return false;
-		}
+		return true;
 	}
 
 	public static boolean haveSameDimension(double[][] m1, double[][] m2) {
+		//Checking for number of rows
+		if(m1.length != m2.length){
+			return false;
+		}
+
 		//Checking for same number column for every rows
 		for(int i = 0; i < m1.length; i++){
 			if(m1[i].length != m2[i].length){
@@ -54,13 +58,7 @@ public class Matrix {
 			}
 		}
 
-		//Checking for number of rows
-		if(m1.length == m2.length){
-			return true;
-		}
-		else{
-			return false;
-		}
+		return true;
 	}
 
 	public static int[][] add(int[][] m1, int[][] m2) {
